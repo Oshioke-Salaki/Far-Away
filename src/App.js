@@ -28,6 +28,13 @@ function App() {
     );
   }
 
+  function onClear() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all items?"
+    );
+    if (confirmed) setItems([]);
+  }
+
   return (
     <div className="app">
       <Logo />
@@ -36,6 +43,7 @@ function App() {
         items={items}
         deleteItem={deleteItem}
         setPacked={setPacked}
+        handleClear={onClear}
       />
       <Stats numItems={numItems} numPacked={numPacked} items={items} />
     </div>
